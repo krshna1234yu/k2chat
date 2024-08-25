@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K^2 Chatt</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+
+    <div class="container" id="main-container"> <!-- Main container for chat UI -->
+        <header class="header">
+            <div class="header-left">
+                <button class="icon-btn" id="theme-menu-toggle">
+                    <!-- Theme Menu Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" x2="12" y1="6" y2="18"></line>
+                        <line x1="6" x2="18" y1="12" y2="12"></line>
+                    </svg>
+                </button>
+                <h1>K^2 Chatt</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <!-- Search Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                    <input type="search" id="search-input" placeholder="Search">
+                </div>
+                <button class="icon-btn" id="options-btn">
+                    <!-- Options Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="8 18 12 22 16 18"></polyline>
+                        <polyline points="8 6 12 2 16 6"></polyline>
+                        <line x1="12" x2="12" y1="2" y2="22"></line>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar" id="sidebar">
+                <button class="new-chat-btn" id="new-chat-btn">New Chat</button>
+                <div class="chat-list" id="chat-list">
+                    <!-- Chat items will be populated here -->
+                    <a href="#" class="chat-item" data-chat-id="1">
+                        <img src="1.png" alt="Avatar">
+                        <div class="chat-info">
+                            <h3>Krishna</h3>
+                            <p>Busy</p>
+                        </div>
+                        <span class="chat-time">2:34 PM</span>
+                        </a>
+                        <a href="#" class="chat-item" data-chat-id="2">
+                        <img src="2.png" alt="Avatar">
+                        <div class="chat-info">
+                            <h3>Deepak</h3>
+                            <p>Sleeping</p>
+                        </div>
+                        <span class="chat-time">3:15 PM</span>
+                        </a>
+                        <a href="#" class="chat-item" data-chat-id="3">
+                        <img src="3.jpg" alt="Avatar">
+                        <div class="chat-info">
+                            <h3>Doreemon</h3>
+                            <p>Sleeping</p>
+                        </div>
+                        <span class="chat-time">4:10 PM</span>
+                        </a>
+                        <a href="#" class="chat-item" data-chat-id="4">
+                        <img src="chhota.jpg" alt="Avatar">
+                        <div class="chat-info">
+                            <h3>Chhota Bheem</h3>
+                            <p>Sleeping</p>
+                        </div>
+                        <span class="chat-time">5:00 PM</span>
+                        </a>
+                        <a href="#" class="chat-item" data-chat-id="5">
+                        <img src="obbo.jpg" alt="Avatar">
+                        <div class="chat-info">
+                            <h3>Obbo Chama</h3>
+                            <p>Sleeping</p>
+                        </div>
+                        <span class="chat-time">5:45 PM</span>
+                        </a>
+                        <a href="#" class="chat-item" data-chat-id="6">
+                        <img src="ninja.jpg" alt="Avatar">
+                        <div class="chat-info">
+                            <h3>Ninja Hattori</h3>
+                            <p>Busy</p>
+                        </div>
+                        <span class="chat-time">6:30 PM</span>
+                        </a>
+                        <a href="#" class="chat-item" data-chat-id="7">
+                        <img src="motu.jpg" alt="Avatar">
+                        <div class="chat-info">
+                            <h3>Motu Patlu</h3>
+                            <p>Busy</p>
+                        </div>
+                        <span class="chat-time">7:15 PM</span>
+                        </a>
+                        
+                        
+                </div>
+            </aside>
+
+            <div class="chat-window hidden" id="chat-window">
+                <div class="chat-header">
+                    <img src="1.png" id="chat-avatar" alt="Avatar">
+                    <h2 id="chat-name">Chat Name</h2>
+                    <button class="icon-btn" id="video-call-btn">
+                        <!-- Video Call Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                            <path d="M1 12h14"></path>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" id="audio-call-btn">
+                        <!-- Audio Call Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 7a6 6 0 0 0-6 6v4a6 6 0 0 0 6 6"></path>
+                            <path d="M2 7a6 6 0 0 1 6 6v4a6 6 0 0 1-6 6"></path>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" id="more-options-btn">
+                        <!-- More Options Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="5" cy="12" r="1"></circle>
+                            <circle cx="19" cy="12" r="1"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Messages will be dynamically inserted here -->
+                </div>
+
+                <div class="message-input">
+                    <textarea placeholder="Type a message..."></textarea>
+                    <button class="send-btn" id="send-btn">
+                        <!-- Send Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" x2="11" y1="2" y2="13"></line>
+                            <path d="M21 21l-4.5-4.5"></path>
+                            <path d="M4 5h3v3h-3z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Chat Form (Initially Hidden) -->
+    <div class="new-chat-form hidden" id="new-chat-form">
+        <h2>Add New Chat</h2>
+        <form id="chatForm">
+            <label for="image-input">Upload Image:</label>
+            <input type="file" id="image-input" accept="image/*" capture="camera">
+
+            <label for="name-input">Name:</label>
+            <input type="text" id="name-input" placeholder="Enter name" required>
+
+            <label for="status-input">Status:</label>
+            <input type="text" id="status-input" placeholder="Enter status" required>
+
+            <button type="submit">Submit</button>
+            <button type="button" id="cancel-btn">Cancel</button>
+        </form>
+    </div>
+    <div class="theme-menu hidden" id="theme-menu">
+        <h2>Select Theme</h2>
+        <button class="theme-btn" data-theme="light-theme">Light Theme</button>
+        <button class="theme-btn" data-theme="dark-theme">Dark Theme</button>
+        <button class="theme-btn" data-theme="blue-theme">Blue Theme</button>
+        <button class="theme-btn" data-theme="green-theme">Green Theme</button>
+        <button class="theme-btn" data-theme="red-theme">Red Theme</button>
+        <button class="theme-btn" data-theme="purple-theme">Purple Theme</button>
+        <button class="theme-btn" data-theme="orange-theme">Orange Theme</button>
+        <button class="theme-btn" data-theme="yellow-theme">Yellow Theme</button>
+        <button class="theme-btn" data-theme="pink-theme">Pink Theme</button>
+        <button class="theme-btn" data-theme="gray-theme">Gray Theme</button>
+    </div>
+
+    <!-- Add the script for handling navigation and form submission -->
+    <script src="script.js"></script>
+    <script>
+        const newChatBtn = document.getElementById('new-chat-btn');
+        const newChatForm = document.getElementById('new-chat-form');
+        const mainContainer = document.getElementById('main-container');
+        const chatList = document.getElementById('chat-list');
+        const cancelBtn = document.getElementById('cancel-btn');
+
+        // Show the new chat form when "New Chat" is clicked
+        newChatBtn.addEventListener('click', () => {
+            mainContainer.classList.add('hidden');
+            newChatForm.classList.remove('hidden');
+        });
+
+        // Hide the new chat form and go back to the main UI
+        cancelBtn.addEventListener('click', () => {
+            newChatForm.classList.add('hidden');
+            mainContainer.classList.remove('hidden');
+        });
+
+        // Handle the form submission
+        document.getElementById('chatForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the input values
+            const nameInput = document.getElementById('name-input').value;
+            const statusInput = document.getElementById('status-input').value;
+            const imageInput = document.getElementById('image-input').files[0];
+
+            // Create a new chat item
+            const newChatItem = document.createElement('a');
+            newChatItem.classList.add('chat-item');
+            newChatItem.href = '#';
+
+            // Create the image element
+            const imgElement = document.createElement('img');
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                imgElement.src = e.target.result;
+            }
+
+            if (imageInput) {
+                reader.readAsDataURL(imageInput); // Convert image to base64 string
+            } else {
+                imgElement.src = 'default-avatar.png'; // Fallback if no image is uploaded
+            }
+
+            imgElement.alt = 'Avatar';
+
+            // Create the chat info div
+            const chatInfoDiv = document.createElement('div');
+            chatInfoDiv.classList.add('chat-info');
+
+            // Create the name and status elements
+            const nameElement = document.createElement('h3');
+            nameElement.textContent = nameInput;
+
+            const statusElement = document.createElement('p');
+            statusElement.textContent = statusInput;
+
+            // Append name and status to chat info div
+            chatInfoDiv.appendChild(nameElement);
+            chatInfoDiv.appendChild(statusElement);
+
+            // Create the chat time span (optional, you can set a fixed time or current time)
+            const timeElement = document.createElement('span');
+            timeElement.classList.add('chat-time');
+            const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            timeElement.textContent = currentTime;
+
+            // Append image, chat info, and time to new chat item
+            newChatItem.appendChild(imgElement);
+            newChatItem.appendChild(chatInfoDiv);
+            newChatItem.appendChild(timeElement);
+
+            // Append the new chat item to the chat list
+            chatList.appendChild(newChatItem);
+
+            // Hide the new chat form after submission and show the main container again
+            newChatForm.classList.add('hidden');
+            mainContainer.classList.remove('hidden');
+
+            // Clear the form inputs
+            document.getElementById('chatForm').reset();
+        });
+        // script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeMenuToggle = document.getElementById('theme-menu-toggle');
+    const themeMenu = document.getElementById('theme-menu');
+    const themeButtons = themeMenu.getElementsByClassName('theme-btn');
+
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'light-theme';
+    document.body.classList.add(savedTheme);
+
+    // Toggle theme menu visibility
+    themeMenuToggle.addEventListener('click', () => {
+        themeMenu.classList.toggle('hidden');
+    });
+
+    // Set up event listeners for theme buttons
+    Array.from(themeButtons).forEach(button => {
+        button.addEventListener('click', (event) => {
+            const theme = event.target.getAttribute('data-theme');
+            
+            // Remove current theme
+            document.body.classList.forEach(cls => {
+                if (cls.endsWith('-theme')) {
+                    document.body.classList.remove(cls);
+                }
+            });
+            
+            // Add new theme
+            document.body.classList.add(theme);
+            
+            // Save the selected theme to localStorage
+            localStorage.setItem('theme', theme);
+            
+            // Close the theme menu after selection
+            themeMenu.classList.add('hidden');
+        });
+    });
+
+    // Close the theme menu if clicked outside
+    document.addEventListener('click', (event) => {
+        if (!themeMenu.contains(event.target) && event.target !== themeMenuToggle) {
+            themeMenu.classList.add('hidden');
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
